@@ -33,8 +33,14 @@ export class CampaignCreateComponent {
   }
 
   onSubmit(): void {
-    this.dialogRef.close();
-    if (this.isEdition) this.formService.onEdit(this.data.product.uuid);
-    else this.formService.onCreate(this.data.product.uuid);
+    if (this.formService.campaignForm.valid) {
+      if (this.isEdition) this.formService.onEdit(this.data.product.uuid);
+      else this.formService.onCreate(this.data.product.uuid);
+      this.dialogRef.close();
+    } else {
+      alert(
+        'The fields: name, keywords, bidAmount, campaignFund, status, radius must be filled in, and the bidAmount value must be greater than 100'
+      );
+    }
   }
 }

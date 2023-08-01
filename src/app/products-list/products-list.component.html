@@ -1,0 +1,6 @@
+<form class="product-form" [formGroup]="productForm">
+  <label for="productSelect">Select a Product:</label>
+  <select name="productSelect" id="productSelect" formControlName="selectedProductId" (ngModelChange)="onProductSelected()">
+    <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+  </select>
+</form>

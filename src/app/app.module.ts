@@ -1,18 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CampaignListComponent } from './campaign-list/campaign-list.component';
+import { CampaignCreateComponent } from './campaign-create/campaign-create.component';
+import { ProductsListComponent } from './products-list/products-list.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, CampaignListComponent, CampaignCreateComponent, ProductsListComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    MatDialogModule,
+    FormsModule,
+    MatButtonModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

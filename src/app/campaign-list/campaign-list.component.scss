@@ -1,0 +1,68 @@
+.campaign-list{
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin:0 32px;
+
+.campaign-table{
+  text-align: center;
+ tr{
+  background-color: rgba(235, 235, 235, 0.63);
+ }
+    td{
+        padding: 10px;
+    }
+    th{
+        padding: 10px;
+        text-transform: uppercase;
+
+    }
+}
+}
+
+.campaign-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 32px;
+    button{
+        padding: 20px;
+        font-weight: bold;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .campaign-list{
+        margin: 0;
+        h1, h2{
+          font-size: 16px;
+          text-align: center;
+        }
+    .campaign-table {
+      width: 100%;
+    }
+    button{
+      padding: 10px;
+      font-weight: bold;
+  }
+  
+    .campaign-table th,
+    .campaign-table td {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .campaign-table th {
+      background-color: #444444;
+      color: white;
+    }
+
+    .campaign-header{
+      margin:4px;
+    }
+  }
+  p{
+    text-align: center;
+  }
+}

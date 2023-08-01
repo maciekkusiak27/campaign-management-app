@@ -1,0 +1,10 @@
+.product-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:16px;
+    padding: 32px 0;
+    select{
+        padding: 10px;
+    }
+}

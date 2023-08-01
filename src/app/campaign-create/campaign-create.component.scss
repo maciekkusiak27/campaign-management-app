@@ -1,0 +1,19 @@
+.form-content{
+    display: flex;
+    flex-direction: column;
+    div{
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        gap:16px;
+        select, input{
+            flex:1;
+        }
+    }
+}
+
+.form-footer{
+    display: flex;
+    justify-content: flex-end;
+    margin: -20px 19px 8px 0 ;
+}

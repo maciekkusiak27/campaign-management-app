@@ -1,0 +1,55 @@
+<form [formGroup]="formService.campaignForm">
+<h1 mat-dialog-title>
+    {{!isEdition? "Create New Campaign" : "Edit Campaign"}}
+</h1>
+<div mat-dialog-content class="form-content">
+  
+        <div>
+          <label for="name">Name:</label>
+          <input required type="text" id="name" formControlName="name" />
+        </div>
+      
+        <div>
+          <label for="keywords">Keywords:</label>
+          <input type="text" id="keywords" formControlName="keywords" />
+        </div>
+      
+        <div>
+          <label for="bidAmount">Bid Amount:</label>
+          <input type="number" id="bidAmount" formControlName="bidAmount" />
+        </div>
+      
+        <div>
+          <label for="campaignFund">Campaign Fund:</label>
+          <input type="number" id="campaignFund" formControlName="campaignFund" />
+        </div>
+      
+        <div>
+          <label for="status">Status:</label>
+          <select id="status" formControlName="status">
+            <option value="on">On</option>
+            <option value="off">Off</option>
+          </select>
+        </div>
+      
+        <div>
+          <label for="town">Town:</label>
+          <select id="town" formControlName="town">
+            <option value="krakow">Krakow</option>
+            <option value="warszawa">Warszawa</option>
+            <option value="wroclaw">Wroclaw</option>
+            <option value="poznan">Poznan</option>
+          </select>
+        </div>
+      
+        <div>
+          <label for="radius">Radius:</label>
+          <input type="number" id="radius" formControlName="radius" />
+        </div>
+ 
+</div>
+<div mat-dialog-actions class="form-footer">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button (click)="onSubmit()" color="primary"> {{isEdition? "Save" : "Create"}}</button>
+</div>
+</form>

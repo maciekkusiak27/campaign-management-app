@@ -1,0 +1,26 @@
+
+<div class="campaign-list">
+    <div class="campaign-header">
+        <h1>{{selectedProduct.name}}</h1>
+        <h2>Campaign Fund: <span>{{selectedProduct.campaignFund - totalCampaignFund}}$</span></h2>
+        <button (click)="createCampaign()" mat-flat-button color="primary">New campaign</button>
+      </div>
+<table class="campaign-table">
+    <tr>
+        <th *ngFor="let headers of tableHeaders">{{headers}}</th>
+    </tr>
+    <tr *ngFor="let campaign of campaigns">
+        <td> {{ campaign.name }}</td>
+        <td> {{ campaign.keywords }}</td>
+        <td> {{ campaign.bidAmount }}</td>
+        <td> {{ campaign.campaignFund }} $</td>
+        <td> {{ campaign.status }}</td>
+        <td> {{ campaign.town }}</td>
+        <td> {{ campaign.radius }} km</td>
+        <td> <button (click)="editCampaign(campaign)" mat-flat-button color="primary">Edit</button></td>
+        <td><button (click)="deleteCampaign(campaign.id)" mat-flat-button color="warn">Delete</button></td>
+    </tr>
+</table>
+<p>Initial campaign fund: {{selectedProduct.campaignFund}} $</p>
+<p>Sum of campaign fund: {{totalCampaignFund}} $</p>
+</div>

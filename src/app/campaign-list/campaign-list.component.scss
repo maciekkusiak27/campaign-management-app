@@ -11,6 +11,10 @@ margin:0 32px;
  }
     td{
         padding: 10px;
+        white-space: nowrap;
+        max-width: 100px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
     th{
         padding: 10px;
@@ -29,6 +33,9 @@ margin:0 32px;
         padding: 20px;
         font-weight: bold;
     }
+    .negative{
+      color:red;
+    }
 }
 
 @media screen and (max-width: 900px) {
@@ -40,6 +47,9 @@ margin:0 32px;
         }
     .campaign-table {
       width: 100%;
+      td{
+        max-width: 100%;
+      }
     }
     button{
       padding: 10px;

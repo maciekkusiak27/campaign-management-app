@@ -34,7 +34,7 @@ export class CampaignCreateComponent {
 
   onSubmit(): void {
     this.dialogRef.close();
-    if (this.isEdition) this.formService.onEdit(this.data.product.id);
-    else this.formService.onCreate(this.data.product.id);
+    if (this.isEdition) this.formService.onEdit(this.data.product.uuid);
+    else this.formService.onCreate(this.data.product.uuid);
   }
 }

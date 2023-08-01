@@ -17,14 +17,14 @@ export class ProductsListComponent implements OnInit {
 
   ngOnInit() {
     this.productForm = new FormGroup({
-      selectedProductId: new FormControl('1'),
+      selectedProductUuid: new FormControl('1'),
     });
     this.onProductSelected();
   }
 
   onProductSelected(): void {
     const selectedProduct = this.products.find(
-      (product) => product.id === this.productForm.value.selectedProductId
+      (product) => product.uuid === this.productForm.value.selectedProductUuid
     );
     this.productSelected.emit(selectedProduct);
   }

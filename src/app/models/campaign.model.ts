@@ -1,5 +1,5 @@
 export interface Campaign {
-  id: number;
+  uuid: string;
   name: string;
   productId: string;
   keywords: string;
@@ -11,7 +11,7 @@ export interface Campaign {
 }
 
 export interface Product {
-  id: string;
+  uuid: string;
   name: string;
   description: string;
   campaignFund: number;

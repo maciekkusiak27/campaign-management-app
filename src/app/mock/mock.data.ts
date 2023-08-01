@@ -2,7 +2,7 @@ import { Campaign, Product } from '../models/campaign.model';
 
 export const mockInitialCampaignData: Campaign[] = [
   {
-    id: 1,
+    uuid: '1',
     name: 'Campaign 1',
     keywords: 'camp 1',
     productId: '1',
@@ -13,7 +13,7 @@ export const mockInitialCampaignData: Campaign[] = [
     radius: 1,
   },
   {
-    id: 2,
+    uuid: '2',
     name: 'Campaign 2',
     keywords: 'camp 2',
     productId: '2',
@@ -24,7 +24,7 @@ export const mockInitialCampaignData: Campaign[] = [
     radius: 30,
   },
   {
-    id: 3,
+    uuid: '3',
     name: 'Campaign 3',
     keywords: 'camp 3',
     productId: '1',
@@ -35,7 +35,7 @@ export const mockInitialCampaignData: Campaign[] = [
     radius: 30,
   },
   {
-    id: 4,
+    uuid: '4',
     name: 'Campaign 4',
     keywords: 'camp 4',
     productId: '3',
@@ -49,19 +49,19 @@ export const mockInitialCampaignData: Campaign[] = [
 
 export const mockInitialProductData: Product[] = [
   {
-    id: '1',
+    uuid: '1',
     name: 'Product 1',
     campaignFund: 5000,
     description: 'super nice product',
   },
   {
-    id: '2',
+    uuid: '2',
     name: 'Product 2',
     campaignFund: 3000,
     description: 'nice product',
   },
   {
-    id: '3',
+    uuid: '3',
     name: 'Product 3',
     campaignFund: 10000,
     description: 'the best product',

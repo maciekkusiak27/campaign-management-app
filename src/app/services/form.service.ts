@@ -9,7 +9,7 @@ import { CampaignService } from './campaign.service';
 })
 export class FormService {
   newCampaign: Campaign = {
-    id: 0,
+    uuid: '0',
     name: '',
     keywords: '',
     productId: '1',
@@ -30,7 +30,7 @@ export class FormService {
 
   initForm(): void {
     this.campaignForm = this.formBuilder.group({
-      id: [''],
+      uuid: [''],
       name: ['', Validators.required],
       keywords: ['', Validators.required],
       bidAmount: [0, [Validators.required, Validators.min(0)]],
@@ -41,17 +41,17 @@ export class FormService {
     });
   }
 
-  onEdit(productId: string): void {
+  onEdit(productUuid: string): void {
     if (this.campaignForm.valid) {
       const formData: Campaign = this.campaignForm.value;
-      this.campaignService.updateCampaignForProduct(formData, productId);
+      this.campaignService.updateCampaignForProduct(formData, productUuid);
     }
   }
 
-  onCreate(productId: string): void {
+  onCreate(productUuid: string): void {
     if (this.campaignForm.valid) {
       const formData: Campaign = this.campaignForm.value;
-      this.campaignService.createCampaignForProduct(formData, productId);
+      this.campaignService.createCampaignForProduct(formData, productUuid);
     }
   }
 }

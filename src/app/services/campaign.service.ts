@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Campaign } from '../models/campaign.model';
 import { mockInitialCampaignData } from '../mock/mock.data';
+import * as uuid from 'uuid';
 
 @Injectable({
   providedIn: 'root',
@@ -22,9 +23,9 @@ export class CampaignService {
     return campaignsJson ? JSON.parse(campaignsJson) : [];
   }
 
-  getCampaignsForProduct(productId: string): Campaign[] {
+  getCampaignsForProduct(productUuid: string): Campaign[] {
     const campaigns = this.getCampaigns();
-    return campaigns.filter((campaign) => campaign.productId === productId);
+    return campaigns.filter((campaign) => campaign.productId === productUuid);
   }
 
   saveCampaigns(campaigns: Campaign[]): void {
@@ -32,28 +33,28 @@ export class CampaignService {
   }
 
   createCampaignForProduct(campaign: Campaign, productId: string): void {
-    campaign.id = Date.now();
+    campaign.uuid = uuid.v4();
     const campaigns = this.getCampaigns();
     campaign.productId = productId;
     campaigns.push(campaign);
     this.saveCampaigns(campaigns);
   }
 
-  updateCampaignForProduct(campaign: Campaign, productId: string): void {
+  updateCampaignForProduct(campaign: Campaign, productUuid: string): void {
     const campaigns = this.getCampaigns();
     const index = campaigns.findIndex(
-      (c) => c.id === campaign.id && c.productId === productId
+      (c) => c.uuid === campaign.uuid && c.productId === productUuid
     );
     if (index !== -1) {
-      campaign.productId = productId;
+      campaign.productId = productUuid;
       campaigns[index] = campaign;
       this.saveCampaigns(campaigns);
     }
   }
 
-  deleteCampaign(id: number): void {
+  deleteCampaign(uuid: string): void {
     const campaigns = this.getCampaigns().filter(
-      (campaign) => campaign.id !== id
+      (campaign) => campaign.uuid !== uuid
     );
     this.saveCampaigns(campaigns);
   }

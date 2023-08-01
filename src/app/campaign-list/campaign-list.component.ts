@@ -16,6 +16,8 @@ export class CampaignListComponent implements OnInit {
 
   @Input() selectedProductSubject!: Subject<Product>;
 
+  isNegative: boolean = false;
+
   campaigns: Campaign[] = [];
 
   tableHeaders: string[] = [
@@ -37,15 +39,13 @@ export class CampaignListComponent implements OnInit {
 
   ngOnInit(): void {
     this.reloadList();
+    this.countCampainFund();
     this.selectedProductSubject.subscribe((selectedProduct: Product) => {
       this.campaigns = this.campaignService.getCampaignsForProduct(
-        selectedProduct.id
+        selectedProduct.uuid
       );
+      this.countCampainFund();
     });
-    this.totalCampaignFund = this.campaigns.reduce(
-      (sum, campaign) => sum + campaign.campaignFund,
-      0
-    );
   }
 
   createCampaign(): void {
@@ -55,6 +55,7 @@ export class CampaignListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(() => {
       this.reloadList();
+      this.countCampainFund();
     });
   }
 
@@ -65,18 +66,30 @@ export class CampaignListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(() => {
       this.reloadList();
+      this.countCampainFund();
     });
   }
 
-  deleteCampaign(id: number): void {
-    this.campaignService.deleteCampaign(id);
-    this.campaigns = this.campaignService.getCampaigns();
+  deleteCampaign(uuid: string): void {
+    this.campaignService.deleteCampaign(uuid);
     this.reloadList();
+    this.countCampainFund();
   }
 
   reloadList(): void {
+    this.countCampainFund();
     this.campaigns = this.campaignService.getCampaignsForProduct(
-      this.selectedProduct.id
+      this.selectedProduct.uuid
     );
+  }
+
+  countCampainFund(): void {
+    this.totalCampaignFund = this.campaigns.reduce(
+      (sum, campaign) => sum + campaign.campaignFund,
+      0
+    );
+    if (this.selectedProduct.campaignFund - this.totalCampaignFund < 0)
+      this.isNegative = true;
+    else this.isNegative = false;
   }
 }

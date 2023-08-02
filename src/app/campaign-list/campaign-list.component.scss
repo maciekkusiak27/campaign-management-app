@@ -4,75 +4,50 @@ flex-direction: column;
 justify-content: center;
 margin:0 32px;
 
-.campaign-table{
-  text-align: center;
- tr{
-  background-color: rgba(235, 235, 235, 0.63);
- }
-    td{
-        padding: 10px;
-        white-space: nowrap;
-        max-width: 100px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    th{
-        padding: 10px;
-        text-transform: uppercase;
-
-    }
-}
-}
-
 .campaign-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin: 10px 32px;
-    button{
-        padding: 20px;
-        font-weight: bold;
-    }
-    .negative{
-      color:red;
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .campaign-list{
-        margin: 0;
-        h1, h2{
-          font-size: 16px;
-          text-align: center;
-        }
-    .campaign-table {
-      width: 100%;
-      td{
-        max-width: 100%;
-      }
-    }
-    button{
-      padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 32px;
+  button{
+      padding: 20px;
       font-weight: bold;
   }
-  
-    .campaign-table th,
-    .campaign-table td {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
+  .negative{
+    color:red;
+  }
+}
+
+  .campaign-content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    ul{
+      list-style-type: none;
     }
-  
-    .campaign-table th {
-      background-color: #444444;
-      color: white;
+    li{
+      margin: 4px;
+      button{
+        margin-right: 8px;
+      }
+    }
     }
 
-    .campaign-header{
-      margin:4px;
+}
+
+@media screen and (max-width: 767px) {
+  .campaign-list{
+    margin: 0;
+    h1, h2{
+      font-size: 16px;
+      text-align: center;
     }
-  }
-  p{
-    text-align: center;
-  }
+    .campaign-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    p{
+      text-align: center;
+    }
+}
 }
